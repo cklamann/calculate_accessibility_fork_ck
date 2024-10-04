@@ -15,13 +15,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Calculate change in accessibility')
     parser.add_argument('potentials', nargs='*', help = 'types of destination accessibility')
     
-    args = parser.parse_args()
+    args_script = parser.parse_args()
     
     # define parameters
     new_projects = pd.read_csv("data/new_projects.csv")
-    potentials = args.potentials
-    
-    print(args)
+    potentials = args_script.potentials
 
     city_wide_model_acc = pd.read_csv("data/city_wide_model_accessibility_results.csv")
 
