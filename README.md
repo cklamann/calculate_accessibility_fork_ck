@@ -14,3 +14,16 @@ This code calculates the change in destination accessibility for each origin in 
 - change in destination accessibility for each origin, mapped to DAid in a csv
 
 
+## Usage:
+
+Test project set - 10 km city-wide budget, from seed 38 - `data/new_projects.csv`
+
+```
+python calculate_accessibility.py potentials
+
+python calculate_accessibility job populations
+```
+
+
+
+
