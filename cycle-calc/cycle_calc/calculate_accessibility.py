@@ -5,14 +5,28 @@
 
 import argparse
 import pickle
-from typing import List, Any
+from typing import Dict, List
 
+import numpy as np
 import pandas as pd
 
 from cycle_calc.cal_acc_functions import cal_acc
 
 
-def main(project_ids: List[int], potentials: List[Any]):
+def main(project_ids: List[int], potentials: List[str]) -> Dict[str, np.int64]:
+    """
+    Calculate the accessibility scores for the network of projects
+
+        Parameters
+
+        project_ids : the projects to calculate the scores for
+        potentials : the metrics (currently "job" and "populations")
+
+        Returns
+
+        Dict[str, np.int64] : A dictionary with a row for each DA and a column for each potential
+
+    """
 
     with open("./data/args.pkl", "rb") as f:
         args = pickle.load(f)

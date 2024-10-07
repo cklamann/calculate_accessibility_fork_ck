@@ -2,8 +2,6 @@
 # coding: utf-8
 # Author: Bo Lin, Madeleine Bonsma-Fisher
 
-import pandas as pd
-import os, pickle
 from tqdm import tqdm
 from networkx.algorithms.shortest_paths.weighted import (
     single_source_dijkstra_path_length,
@@ -76,16 +74,3 @@ def cal_acc(
     if by_orig:
         return acc, acc_by_orig
     return acc
-
-
-def load_file(path):
-    if os.path.exists(path):
-        if path[-4:] == ".csv":
-            file = pd.read_csv(path)
-        else:
-            with open(path, "rb") as f:
-                file = pickle.load(f)
-                f.close()
-        return file, True
-    else:
-        return None, False
