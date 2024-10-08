@@ -30,6 +30,6 @@ RUN python3 -m venv $VIRTUAL_ENV && \
 
 USER $USERNAME
 
-COPY . .
+COPY ./cycle-calc .
 
 RUN poetry install --with dev
