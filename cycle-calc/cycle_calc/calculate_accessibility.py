@@ -13,7 +13,7 @@ import pandas as pd
 from cycle_calc.cal_acc_functions import cal_acc
 
 
-def main(project_ids: List[int], potentials: List[str]) -> Dict[str, np.int64]:
+def main(project_ids: List[int], potentials: List[str]) -> Dict[str, List[np.int64]]:
     """
     Calculate the accessibility scores for the network of projects
 
@@ -52,7 +52,12 @@ if __name__ == "__main__":
         default="job",
         help="types of destination accessibility",
     )
-    parser.add_argument("--projects_path", type=str, help="path to project csv", default="./data/new_projects.csv")
+    parser.add_argument(
+        "--projects_path",
+        type=str,
+        help="path to project csv",
+        default="./data/new_projects.csv",
+    )
 
     args_script = parser.parse_args()
 
