@@ -5,6 +5,10 @@ description = ""
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
+#packages = [{ include = "*", from = "cycle_calc/src" }]
+
+include = [{ path = "cycle_calc/data", format = ["sdist", "wheel"] }]
+
 [tool.poetry.dependencies]
 python = "^3.10"
 networkx = "^3.3"

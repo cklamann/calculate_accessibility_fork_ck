@@ -4,6 +4,7 @@
 # ---
 
 import argparse
+from os import path
 import pickle
 from typing import Dict, List
 
@@ -28,7 +29,9 @@ def main(project_ids: List[int], potentials: List[str]) -> Dict[str, List[np.int
 
     """
 
-    with open("./data/args.pkl", "rb") as f:
+    with open(
+        path.abspath(path.join(path.dirname(__file__), "data/args.pkl")), "rb"
+    ) as f:
         args = pickle.load(f)
 
     _, acc_by_orig = cal_acc(
