@@ -14,7 +14,7 @@ import pandas as pd
 from cycle_calc.cal_acc_functions import cal_acc
 
 
-def main(project_ids: List[int], potentials: List[str]) -> Dict[str, List[np.int64]]:
+def main(project_ids: List[int], potentials: List[str]) -> Dict[str, np.int64]:
     """
     Calculate the accessibility scores for the network of projects
 
