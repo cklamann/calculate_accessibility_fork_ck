@@ -37,13 +37,12 @@ def main(
     ) as f:
         args = pickle.load(f)
 
-    _, acc_by_orig = cal_acc(
+    acc_by_orig = cal_acc(
         args,
         project_ids,
         [],
         impedence="time",
         potentials=potentials,
-        by_orig=True,
     )
 
     return acc_by_orig
