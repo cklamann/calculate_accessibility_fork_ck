@@ -23,7 +23,7 @@ def cal_acc(
     calculate the accessibility of the instance given the selected projects and signals
     :param args:
     :param new_projects: list of project indices for args['projects']
-    :param new_signals:
+    :param new_signals: list of node IDs to add intersection control
     :return: accessibility
     """
     # retrieve information
@@ -36,7 +36,7 @@ def cal_acc(
     ]
     projs = args["projects"]
     travel_time = args["travel_time"]
-    unsig_inters = args["signal_costs"]
+    unsig_inters = args["signal_costs"] # currently unsignalized intersections
     # get new edges
     new_edges, new_nodes = [], set([])
     for idx in new_projects:
@@ -47,7 +47,7 @@ def cal_acc(
     # new nodes get added if they were unsignalized and now fall on a low-stress link
     new_nodes = list(new_nodes.intersection(unsig_inters).difference(new_signals))
 
-    for idx in new_signals + new_nodes:
+    for idx in new_signals + new_nodes: # add edges next to identified nodes and new signals
         new_edges += [(i, j) for (i, j) in G.out_edges(idx) if j in destinations]
 
     # get attributes for new edges
